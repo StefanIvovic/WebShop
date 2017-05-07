@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using WebShop.BusinessEntities;
 using WebShop.DAL;
 using WebShop.DAL.UnitOfWork;
@@ -27,6 +28,21 @@ namespace WebShop.BusinessServices
                 productEntity.Stock = product.Stock;
                 productEntity.IsActive = product.IsActive;
                 return productEntity;
+            }
+            return null;
+        }
+        //automaper test
+        public ProductEntity GetProductByIdd(int productId)
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Product, ProductEntity>();
+            });
+            var product = _unitOfWork.ProductRepository.GetById(productId);
+            if (product != null)
+            {
+                ProductEntity item = Mapper.Map<Product, ProductEntity>(product);
+                return item;
             }
             return null;
         }

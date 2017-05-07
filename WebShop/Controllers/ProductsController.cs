@@ -27,7 +27,7 @@ namespace WebShop.Controllers
 
         public ActionResult Details(int id)
         {
-            ProductEntity product = _productServices.GetProductById(id);
+            ProductEntity product = _productServices.GetProductByIdd(id);
             if (product == null)
                 return HttpNotFound();
             return View(product);
