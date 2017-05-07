@@ -41,7 +41,7 @@ namespace WebShop.BusinessServices
             var product = _unitOfWork.ProductRepository.GetById(productId);
             if (product != null)
             {
-                ProductEntity item = Mapper.Map<Product, ProductEntity>(product);
+                var item = Mapper.Map<Product, ProductEntity>(product);
                 return item;
             }
             return null;

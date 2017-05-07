@@ -14,5 +14,6 @@ namespace WebShop.BusinessServices
         IEnumerable<ProductEntity> GetAllProducts();
         void CreateProduct(ProductEntity product);
         void UpdateProduct(ProductEntity product);
+        ProductEntity GetProductByIdd(int productId);
     }
 }

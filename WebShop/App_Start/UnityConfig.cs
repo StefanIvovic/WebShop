@@ -1,6 +1,7 @@
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc5;
+using WebShop.BusinessServices;
 
 namespace WebShop
 {
@@ -14,7 +15,7 @@ namespace WebShop
             // it is NOT necessary to register your controllers
             
             // e.g. container.RegisterType<ITestService, TestService>();
-            
+            container.RegisterType<IProductServices, ProductServices>(new ContainerControlledLifetimeManager());
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
