@@ -15,6 +15,7 @@ namespace WebShop.Tests.Controllers
         [TestMethod]
         public void Index()
         {
+            int i = 4;
             // Arrange
             HomeController controller = new HomeController();
 
